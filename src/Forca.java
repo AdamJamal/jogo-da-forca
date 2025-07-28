@@ -54,6 +54,7 @@ public class Forca {
         if (asterisco.equals(novoasterisco)) {
             contagem++;
             System.out.println("Letra incorreta.");
+            forcaImagem();
         } else {
             asterisco = novoasterisco;
             System.out.println("Boa! Você acertou uma letra.");
@@ -64,7 +65,24 @@ public class Forca {
         }
 
         if (contagem == 6) {
+            forcaImagem();
             System.out.println("FIM DE JOGO! A palavra era " + palavra + "!");
+        }
+    }
+
+    public static void forcaImagem() {
+        if (contagem == 1) {
+            System.out.println("   |          _|_");
+        } else if (contagem == 2) {
+            System.out.println("   |         /   \\");
+        } else if (contagem == 3) {
+            System.out.println("   |        |     |");
+        } else if (contagem == 4) {
+            System.out.println("   |         \\_ _/");
+        } else if (contagem == 5) {
+            System.out.println("   |         / | \\");
+        } else if (contagem == 6) {
+            System.out.println("   |        | X  X |");
         }
     }
 }
