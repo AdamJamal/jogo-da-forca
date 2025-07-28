@@ -24,3 +24,29 @@ Para verificar se o Java está instalado:
 
 ```bash
 java -version
+```
+
+## Estrutura do Projeto
+jogo-da-forca/
+├── src/
+│   └── Forca.java        # Código principal do jogo
+└── README.md
+
+## Como Executar
+1. Clone o repositório ou baixe o .zip:
+```bash
+git clone https://github.com/seu-usuario/jogo-da-forca.git
+cd jogo-da-forca/src
+```
+2. Compile o arquivo:
+```bash
+javac Forca.java
+```
+3. Execute o jogo:
+```bash
+java Forca
+```
+
+
+
+
