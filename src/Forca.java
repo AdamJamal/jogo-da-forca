@@ -72,17 +72,76 @@ public class Forca {
 
     public static void forcaImagem() {
         if (contagem == 1) {
+            System.out.println("Errado, tente novamente");
+            System.out.println("   ____________");
             System.out.println("   |          _|_");
-        } else if (contagem == 2) {
+            System.out.println("   |         ");
+            System.out.println("   |        ");
+            System.out.println("   |         ");
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("___|___");
+        }
+        if (contagem == 2) {
+            System.out.println("Errado, tente novamente");
+            System.out.println("   ____________");
+            System.out.println("   |          _|_");
             System.out.println("   |         /   \\");
-        } else if (contagem == 3) {
             System.out.println("   |        |     |");
-        } else if (contagem == 4) {
             System.out.println("   |         \\_ _/");
-        } else if (contagem == 5) {
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("___|___");
+        }
+        if (contagem == 3) {
+            System.out.println("Errado, tente novamente");
+            System.out.println("   ____________");
+            System.out.println("   |          _|_");
+            System.out.println("   |         /   \\");
+            System.out.println("   |        |     |");
+            System.out.println("   |         \\_ _/");
+            System.out.println("   |           |");
+            System.out.println("   |           |");
+            System.out.println("   |");
+            System.out.println("___|___");
+        }
+        if (contagem == 4) {
+            System.out.println("Errado, tente novamente");
+            System.out.println("   ____________");
+            System.out.println("   |          _|_");
+            System.out.println("   |         /   \\");
+            System.out.println("   |        |     |");
+            System.out.println("   |         \\_ _/");
+            System.out.println("   |           |");
+            System.out.println("   |           |");
+            System.out.println("   |          / \\ ");
+            System.out.println("___|___      /   \\");
+        }
+        if (contagem == 5) {
+            System.out.println("Errado, tente novamente");
+            System.out.println("   ____________");
+            System.out.println("   |          _|_");
+            System.out.println("   |         /   \\");
+            System.out.println("   |        |     |");
+            System.out.println("   |         \\_ _/");
+            System.out.println("   |          _|_");
             System.out.println("   |         / | \\");
-        } else if (contagem == 6) {
+            System.out.println("   |          / \\ ");
+            System.out.println("___|___      /   \\");
+        }
+        if (contagem == 6) {
+            System.out.println("   ____________");
+            System.out.println("   |          _|_");
+            System.out.println("   |         /   \\");
             System.out.println("   |        | X  X |");
+            System.out.println("   |         \\_ _/");
+            System.out.println("   |          _|_");
+            System.out.println("   |         / | \\");
+            System.out.println("   |          / \\ ");
+            System.out.println("___|___      /   \\");
+            System.out.println("FIM DE JOGO! A palavra era " + palavra + "!");
         }
     }
 }
