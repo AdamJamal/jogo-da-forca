@@ -1,12 +1,9 @@
-public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+if (adivinha.length() != 1) {
+    System.out.println("Digite apenas uma letra por vez.");
+    continue;
+}
 
-    while (asterisco.contains("*")) {
-        System.out.println("Adivinhe uma letra:");
-        System.out.println(asterisco);
-
-        String adivinha = sc.next().toLowerCase();
-    }
-
-    sc.close();
+if (!Character.isLetter(adivinha.charAt(0))) {
+    System.out.println("Isso não é uma letra. Tente novamente.");
+    continue;
 }
