@@ -32,8 +32,33 @@ public class Forca {
             }
 
             letrasDigitadas += adivinha;
+            forca(adivinha);
         }
 
         sc.close();
+    }
+
+    public static void forca(String adivinha) {
+        String novoasterisco = "";
+        for (int i = 0; i < palavra.length(); i++) {
+            if (palavra.charAt(i) == adivinha.charAt(0)) {
+                novoasterisco += adivinha.charAt(0);
+            } else if (asterisco.charAt(i) != '*') {
+                novoasterisco += palavra.charAt(i);
+            } else {
+                novoasterisco += "*";
+            }
+        }
+
+        if (asterisco.equals(novoasterisco)) {
+            System.out.println("Letra incorreta.");
+        } else {
+            asterisco = novoasterisco;
+            System.out.println("Boa! Você acertou uma letra.");
+        }
+
+        if (asterisco.equals(palavra)) {
+            System.out.println("Correto! Você ganhou! A palavra era " + palavra + "!");
+        }
     }
 }
