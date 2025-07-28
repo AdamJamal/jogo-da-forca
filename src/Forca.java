@@ -92,7 +92,6 @@ public class Forca {
         }
 
         if (contagem == 6) {
-            forcaImagem();
             System.out.println("Fim de jogo! A palavra era: \"" + palavra + "\"");
         }
     }
