@@ -1,13 +1,12 @@
-import java.util.Scanner;
+public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
 
-public class Forca {
-    private static String[] palavras = {"cozinha", "amarelo", "instituto", "abelha"};
-    private static String palavra = palavras[(int) (Math.random() * palavras.length)];
-    private static String asterisco = new String(new char[palavra.length()]).replace("\0", "*");
+    while (asterisco.contains("*")) {
+        System.out.println("Adivinhe uma letra:");
+        System.out.println(asterisco);
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.println("Jogo da Forca iniciado!");
+        String adivinha = sc.next().toLowerCase();
     }
+
+    sc.close();
 }
