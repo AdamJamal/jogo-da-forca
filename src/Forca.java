@@ -1,9 +1,10 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Forca {
 
     private static String[] palavras = {"cozinha", "amarelo", "instituto", "abelha"};
-    private static String palavra = palavras[(int) (Math.random() * palavras.length)];
+    private static String palavra = palavras[new Random().nextInt(palavras.length)];
     private static String asterisco = new String(new char[palavra.length()]).replace("\0", "*");
     private static String letrasDigitadas = "";
     private static int contagem = 0;
@@ -12,6 +13,10 @@ public class Forca {
         Scanner sc = new Scanner(System.in);
 
         while (contagem < 6 && asterisco.contains("*")) {
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
+
+            System.out.println("Letras usadas: " + letrasDigitadas.replaceAll("", " ").trim());
             System.out.println("Adivinhe uma letra:");
             System.out.println(asterisco);
 
@@ -28,7 +33,7 @@ public class Forca {
             }
 
             if (letrasDigitadas.contains(adivinha)) {
-                System.out.println("Você já tentou essa letra. Tente outra.");
+                System.out.println("Você ja tentou essa letra. Tente outra.");
                 continue;
             }
 
@@ -61,13 +66,9 @@ public class Forca {
         }
 
         if (asterisco.equals(palavra)) {
-            System.out.println("Correto! Você ganhou! A palavra era " + palavra + "!");
+            System.out.println("Muito bem! Você acertou a palavra: \"" + palavra + "\"");
         }
 
-        if (contagem == 6) {
-            forcaImagem();
-            System.out.println("FIM DE JOGO! A palavra era " + palavra + "!");
-        }
     }
 
     public static void forcaImagem() {
@@ -141,7 +142,7 @@ public class Forca {
             System.out.println("   |         / | \\");
             System.out.println("   |          / \\ ");
             System.out.println("___|___      /   \\");
-            System.out.println("FIM DE JOGO! A palavra era " + palavra + "!");
+            System.out.println("Fim de jogo! A palavra era: \"" + palavra + "\"");
         }
     }
 }
