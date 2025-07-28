@@ -27,10 +27,12 @@ java -version
 ```
 
 ## Estrutura do Projeto
+```text
 jogo-da-forca/
 ├── src/
 │   └── Forca.java        # Código principal do jogo
 └── README.md
+```
 
 ## Como Executar
 1. Clone o repositório ou baixe o .zip:
