@@ -68,3 +68,6 @@ pause
 3. Inclua esse arquivo .bat na pasta .zip extraída
 
 4. Execute o .bat
+
+
+https://prnt.sc/GX9v5UmGGvr2
