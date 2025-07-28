@@ -6,11 +6,12 @@ public class Forca {
     private static String palavra = palavras[(int) (Math.random() * palavras.length)];
     private static String asterisco = new String(new char[palavra.length()]).replace("\0", "*");
     private static String letrasDigitadas = "";
+    private static int contagem = 0;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        while (asterisco.contains("*")) {
+        while (contagem < 6 && asterisco.contains("*")) {
             System.out.println("Adivinhe uma letra:");
             System.out.println(asterisco);
 
@@ -51,6 +52,7 @@ public class Forca {
         }
 
         if (asterisco.equals(novoasterisco)) {
+            contagem++;
             System.out.println("Letra incorreta.");
         } else {
             asterisco = novoasterisco;
@@ -59,6 +61,10 @@ public class Forca {
 
         if (asterisco.equals(palavra)) {
             System.out.println("Correto! Você ganhou! A palavra era " + palavra + "!");
+        }
+
+        if (contagem == 6) {
+            System.out.println("FIM DE JOGO! A palavra era " + palavra + "!");
         }
     }
 }
