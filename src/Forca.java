@@ -4,44 +4,66 @@ import java.util.Scanner;
 public class Forca {
 
     private static String[] palavras = {"cozinha", "amarelo", "instituto", "abelha"};
-    private static String palavra = palavras[new Random().nextInt(palavras.length)];
-    private static String asterisco = new String(new char[palavra.length()]).replace("\0", "*");
-    private static String letrasDigitadas = "";
-    private static int contagem = 0;
+    private static String palavra;
+    private static String asterisco;
+    private static String letrasDigitadas;
+    private static int contagem;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        boolean jogarNovamente;
 
-        while (contagem < 6 && asterisco.contains("*")) {
+        do {
+            iniciarJogo();
+
             System.out.print("\033[H\033[2J");
             System.out.flush();
+            System.out.println("──────────────");
+            System.out.println("Bem-vindo ao jogo da forca!");
+            System.out.println("Adivinhe a palavra secreta, letra por letra.");
+            System.out.println("Você tem 6 chances. Boa sorte!");
+            System.out.println("──────────────");
 
-            System.out.println("Letras usadas: " + letrasDigitadas.replaceAll("", " ").trim());
-            System.out.println("Adivinhe uma letra:");
-            System.out.println(asterisco);
+            while (contagem < 6 && asterisco.contains("*")) {
+                System.out.println("\nLetras usadas: " + letrasDigitadas.trim());
+                System.out.println("Adivinhe uma letra:");
+                System.out.println(asterisco);
 
-            String adivinha = sc.next().toLowerCase();
+                String adivinha = sc.next().toLowerCase();
 
-            if (adivinha.length() != 1) {
-                System.out.println("Digite apenas uma letra por vez.");
-                continue;
+                if (adivinha.length() != 1) {
+                    System.out.println("Digite apenas uma letra por vez.");
+                    continue;
+                }
+
+                if (!Character.isLetter(adivinha.charAt(0))) {
+                    System.out.println("Isso não é uma letra. Tente novamente.");
+                    continue;
+                }
+
+                if (letrasDigitadas.contains(adivinha)) {
+                    System.out.println("Você já tentou essa letra. Tente outra.");
+                    continue;
+                }
+
+                letrasDigitadas += adivinha + " ";
+                forca(adivinha);
             }
 
-            if (!Character.isLetter(adivinha.charAt(0))) {
-                System.out.println("Isso não é uma letra. Tente novamente.");
-                continue;
-            }
+            System.out.println("\nDeseja jogar novamente? (s/n)");
+            String resposta = sc.next().toLowerCase();
+            jogarNovamente = resposta.equals("s");
 
-            if (letrasDigitadas.contains(adivinha)) {
-                System.out.println("Você ja tentou essa letra. Tente outra.");
-                continue;
-            }
-
-            letrasDigitadas += adivinha;
-            forca(adivinha);
-        }
+        } while (jogarNovamente);
 
         sc.close();
+    }
+
+    private static void iniciarJogo() {
+        palavra = palavras[new Random().nextInt(palavras.length)];
+        asterisco = new String(new char[palavra.length()]).replace("\0", "*");
+        letrasDigitadas = "";
+        contagem = 0;
     }
 
     public static void forca(String adivinha) {
@@ -69,6 +91,10 @@ public class Forca {
             System.out.println("Muito bem! Você acertou a palavra: \"" + palavra + "\"");
         }
 
+        if (contagem == 6) {
+            forcaImagem();
+            System.out.println("Fim de jogo! A palavra era: \"" + palavra + "\"");
+        }
     }
 
     public static void forcaImagem() {
@@ -142,7 +168,6 @@ public class Forca {
             System.out.println("   |         / | \\");
             System.out.println("   |          / \\ ");
             System.out.println("___|___      /   \\");
-            System.out.println("Fim de jogo! A palavra era: \"" + palavra + "\"");
         }
     }
 }
