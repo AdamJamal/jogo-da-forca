@@ -35,7 +35,8 @@ jogo-da-forca/
 ```
 
 ## Como Executar
-1. Clone o repositório ou baixe o .zip:
+1. Clone o repositório:
+   linux:
 ```bash
 git clone https://github.com/seu-usuario/jogo-da-forca.git
 cd jogo-da-forca/src
@@ -49,6 +50,21 @@ javac Forca.java
 java Forca
 ```
 
+windows: 
+1. Baixe o .zip
+2. Crie um arquivo .bat contendo o seguinte conteúdo
+```bash
+@echo off
+cd src
+javac Forca.java
+if %errorlevel% neq 0 (
+    echo Erro na compilação.
+    pause
+    exit /b
+)
+java Forca
+pause
+```
+3. Inclua esse arquivo .bat na pasta .zip extraída
 
-
-
+4. Execute o .bat
